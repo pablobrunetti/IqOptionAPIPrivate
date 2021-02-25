@@ -224,8 +224,8 @@ class IQ_Option:
                     time.sleep(5)
             start = time.time()
             while True:
-                if time.time() - start > 90:
-                    logging.error('**warning** get_all_init late 90 sec')
+                if time.time() - start > 60:
+                    logging.error('**warning** get_all_init late 60 sec')
                     break
                 try:
                     if self.api.api_option_init_all_result != None:
@@ -244,8 +244,8 @@ class IQ_Option:
         self.api.get_api_option_init_all_v2()
         start_t = time.time()
         while self.api.api_option_init_all_result_v2 == None:
-            if time.time() - start_t >= 30:
-                logging.error('**warning** get_all_init_v2 late 30 sec')
+            if time.time() - start_t >= 60:
+                logging.error('**warning** get_all_init_v2 late 60 sec')
                 return None
         return self.api.api_option_init_all_result_v2
 
